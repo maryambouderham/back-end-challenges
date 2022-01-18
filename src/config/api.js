@@ -1,6 +1,6 @@
 const API_URL = {
     user:"api/users",
-    todo:"api/challenges",
+    challenge:"api/challenges",
     auth:"api/auth"
 } 
 exports.API_URL = API_URL
