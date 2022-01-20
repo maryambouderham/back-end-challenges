@@ -13,7 +13,7 @@ exports.addChallenge= async (req,resp)=>{
     try{
         let ne=await QR(`INSERT INTO CHALLENGES (Title,Description,Image)
       VALUES ('${newChallenge.title}','${newChallenge.description}','${newChallenge.image}')`)
-      console.log(222)    
+         
       console.log(ne);
          
       }catch(error) {
@@ -31,7 +31,22 @@ exports.editChallenge= async (req,resp)=>{
         Image='${newChallenge.image}'
         WHERE idChallenge=${req.params.challengeID}`)
       
-      console.log(222)    
+         
+      console.log(ne);
+         
+      }catch(error) {
+        console.log(error.message)
+        //resp.status(500).json({ message: error.message})
+    }   
+    }
+//delete challenge
+exports.deleteChallenge= async (req,resp)=>{
+    
+    try{
+        let ne=await QR(`DELETE FROM CHALLENGES
+        WHERE idChallenge=${req.params.challengeID}`)
+      
+        
       console.log(ne);
          
       }catch(error) {

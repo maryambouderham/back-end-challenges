@@ -5,7 +5,7 @@ const cors = require("cors")
 const bp = require("body-parser")
 const { register, verifyEmail, resend } = require("./api/auth")
 const { verifyDate } = require("./helpers/verifyDate")
-const { addChallenge, editChallenge } = require("./api/challenge")
+const { addChallenge, editChallenge, deleteChallenge } = require("./api/challenge")
 // const { verifyEmail,
 //         register,
 //     } = require("./api/auth")
@@ -61,3 +61,5 @@ app.get(`/${API_URL.auth}/:userEmail/code/:token`, (req, resp) =>
 app.get(`/${API_URL.challenge}/addChallenge`,addChallenge)
 //Edit Challenge
 app.get(`/${API_URL.challenge}/:challengeID/editChallenge`,editChallenge)
+//Delete Challenge
+app.get(`/${API_URL.challenge}/:challengeID/deleteChallenge`,deleteChallenge)
