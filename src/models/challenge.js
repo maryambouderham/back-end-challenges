@@ -2,9 +2,9 @@ class ChallengeModel{
     constructor(
        title="",
        description="",
+       image="",
        duree=0,
        price=0,
-       image="",
        status_challenge="AVENIR",
        level_challenge="FACILE",
        distance=0 ,

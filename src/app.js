@@ -5,6 +5,7 @@ const cors = require("cors")
 const bp = require("body-parser")
 const { register, verifyEmail, resend } = require("./api/auth")
 const { verifyDate } = require("./helpers/verifyDate")
+const { addChallenge } = require("./api/challenge")
 // const { verifyEmail,
 //         register,
 //     } = require("./api/auth")
@@ -29,12 +30,11 @@ app.use(cors())
 app.listen('9000', () => {
     console.log('Server started on port 9000 😇');
 })
-
-// //register
+//register
  app.get(`/${API_URL.auth}/register`, register)
 //resend mail
 app.get(`/${API_URL.user}/:userEmail/resend`,resend)
-// //verify email after register
+//verify email after register
 app.get(`/${API_URL.auth}/:userEmail/code/:token`, (req, resp) => 
 {
     //verify if account is already verify
@@ -57,3 +57,5 @@ app.get(`/${API_URL.auth}/:userEmail/code/:token`, (req, resp) =>
       }
     })
 })
+//Add Challenge
+app.get(`/${API_URL.challenge}/addChallenge`,addChallenge)
