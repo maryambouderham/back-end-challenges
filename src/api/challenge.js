@@ -19,8 +19,23 @@ exports.addChallenge= async (req,resp)=>{
       }catch(error) {
         console.log(error.message)
         //resp.status(500).json({ message: error.message})
-    }
-        
-      
-    
+    }   
 }
+//edit challenge
+exports.editChallenge= async (req,resp)=>{
+    let newChallenge=new ChallengeModel("TITLEEDIT","desc1","img")
+    try{
+        let ne=await QR(`UPDATE CHALLENGES SET 
+        Title='${newChallenge.title}',
+        Description='${newChallenge.description}',
+        Image='${newChallenge.image}'
+        WHERE idChallenge=${req.params.challengeID}`)
+      
+      console.log(222)    
+      console.log(ne);
+         
+      }catch(error) {
+        console.log(error.message)
+        //resp.status(500).json({ message: error.message})
+    }   
+    }
